@@ -1,13 +1,11 @@
 #' Countdown until stop work
 #'
-#' Countdown \code{minutes} then show \code{explosion} image
-#' fullscreen.
+#' Countdown \code{minutes} then lock screen.
 #'
-#' @param explosion file path to image file
 #' @param minutes numeric
 #'
 #' @export
-workTimer = function(explosion, minutes = 25) {
+workTimer = function(minutes = 25) {
 
     ## wait 25 minutes
     endTime = Sys.time() + (minutes * 60)
@@ -28,23 +26,42 @@ workTimer = function(explosion, minutes = 25) {
 
     ## it's over!
     cat("\nIT'S OVER!\n")
-    system2("eog", c("-f", shQuote(normalizePath(explosion))))
+    
+    systemOs = Sys.info()["sysname"]
+    switch(
+        systemOs,
+        Windows = {
+            system2(command = "rundll32.exe", 
+                    args = "user32.dll, LockWorkStation", wait = FALSE,
+                    stdout = FALSE, stderr = FALSE)
+        },
+        Linux = {
+            system2(command = "gnome-screensaver-command", args = "-l", 
+                    wait = FALSE, stdout = FALSE, stderr = FALSE)
+        }
+    )
 }
 
 #' Prompt to repeat \code{workTimer}
 #'
 #' Keep prompting to start another batch of work until quit.
 #' 
-#' @param explosion file path to image file
 #' @param minutes numeric
 #'
 #' @export
-promptTimer = function(explosion, minutes = 25) {
+promptTimer = function(minutes = 25) {
     while (TRUE) {
-        workTimer(minutes = minutes, explosion = explosion)
-        cat("Enter 'g' to go again, or anything else to exit: ")
+        workTimer(minutes = minutes)
+        cat("Enter 'g' to go again, 'e' to exit: ")
         enter = readLines(con = "stdin", n = 1)
-        if (enter != "g")
-            break
+        while (enter != "g" & enter != "e") {
+            cat("Enter 'g' to go again, 'e' to exit: ")
+            enter = readLines(con = "stdin", n = 1)
+        }
+        switch(
+            enter,
+            g = next,
+            e = break
+        )
     }
 }

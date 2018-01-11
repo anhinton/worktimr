@@ -4,14 +4,11 @@
 \alias{workTimer}
 \title{Countdown until stop work}
 \usage{
-workTimer(explosion, minutes = 25)
+workTimer(minutes = 25)
 }
 \arguments{
-\item{explosion}{file path to image file}
-
 \item{minutes}{numeric}
 }
 \description{
-Countdown \code{minutes} then show \code{explosion} image
-fullscreen.
+Countdown \code{minutes} then lock screen.
 }

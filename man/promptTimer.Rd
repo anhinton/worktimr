@@ -4,11 +4,9 @@
 \alias{promptTimer}
 \title{Prompt to repeat \code{workTimer}}
 \usage{
-promptTimer(explosion, minutes = 25)
+promptTimer(minutes = 25)
 }
 \arguments{
-\item{explosion}{file path to image file}
-
 \item{minutes}{numeric}
 }
 \description{
