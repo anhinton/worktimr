@@ -3,9 +3,10 @@
 #' Countdown \code{minutes} then lock screen.
 #'
 #' @param minutes numeric
+#' @param lockScreen boolean lock the screen when countdown ends
 #'
 #' @export
-workTimer = function(minutes = 25) {
+workTimer = function(minutes = 25, lockScreen = TRUE) {
 
     ## wait 25 minutes
     endTime = Sys.time() + (minutes * 60)
@@ -27,19 +28,21 @@ workTimer = function(minutes = 25) {
     ## it's over!
     cat("\nIT'S OVER!\n")
     
-    systemOs = Sys.info()["sysname"]
-    switch(
-        systemOs,
-        Windows = {
-            system2(command = "rundll32.exe", 
-                    args = "user32.dll, LockWorkStation", wait = FALSE,
-                    stdout = FALSE, stderr = FALSE)
-        },
-        Linux = {
-            system2(command = "gnome-screensaver-command", args = "-l", 
-                    wait = FALSE, stdout = FALSE, stderr = FALSE)
-        }
-    )
+    if (lockScreen) {
+        systemOs = Sys.info()["sysname"]
+        switch(
+            systemOs,
+            Windows = {
+                system2(command = "rundll32.exe", 
+                        args = "user32.dll, LockWorkStation", wait = FALSE,
+                        stdout = FALSE, stderr = FALSE)
+            },
+            Linux = {
+                system2(command = "gnome-screensaver-command", args = "-l", 
+                        wait = FALSE, stdout = FALSE, stderr = FALSE)
+            }
+        )
+    }
 }
 
 #' Prompt to repeat \code{workTimer}
@@ -47,11 +50,12 @@ workTimer = function(minutes = 25) {
 #' Keep prompting to start another batch of work until quit.
 #' 
 #' @param minutes numeric
+#' @param lockScreen boolean lock the screen when countdown ends
 #'
 #' @export
-promptTimer = function(minutes = 25) {
+promptTimer = function(minutes = 25, lockScreen = TRUE) {
     while (TRUE) {
-        workTimer(minutes = minutes)
+        workTimer(minutes = minutes, lockScreen = lockScreen)
         cat("Enter 'g' to go again, 'e' to exit: ")
         enter = readLines(con = "stdin", n = 1)
         while (enter != "g" & enter != "e") {

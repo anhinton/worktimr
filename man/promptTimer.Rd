@@ -4,10 +4,12 @@
 \alias{promptTimer}
 \title{Prompt to repeat \code{workTimer}}
 \usage{
-promptTimer(minutes = 25)
+promptTimer(minutes = 25, lockScreen = TRUE)
 }
 \arguments{
 \item{minutes}{numeric}
+
+\item{lockScreen}{boolean lock the screen when countdown ends}
 }
 \description{
 Keep prompting to start another batch of work until quit.
