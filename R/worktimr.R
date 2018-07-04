@@ -3,7 +3,7 @@
 #' Countdown \code{minutes} then lock screen.
 #'
 #' @param minutes numeric
-#' @param lockScreen boolean lock the screen when countdown ends
+#' @param lockScreen logical lock the screen when countdown ends
 #'
 #' @export
 workTimer = function(minutes = 25, lockScreen = TRUE) {

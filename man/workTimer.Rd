@@ -9,7 +9,7 @@ workTimer(minutes = 25, lockScreen = TRUE)
 \arguments{
 \item{minutes}{numeric}
 
-\item{lockScreen}{boolean lock the screen when countdown ends}
+\item{lockScreen}{logical lock the screen when countdown ends}
 }
 \description{
 Countdown \code{minutes} then lock screen.
