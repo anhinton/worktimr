@@ -1,11 +1,11 @@
 Package: worktimr
 Title: Remind Me To Stand Up From My Desk
-Version: 2018-05-22
-Date: 2018-01-12
+Version: 2018-07-04
+Date: 2018-07-04
 Authors@R: person("Ashley", "Hinton", email = "ashley@canadia.co.nz", role = c("aut", "cre"))
 Description: This package counts down a given number of minutes then
     displays a full-screen image to remind me to stand up and stretch.
-Depends: R (>= 3.4.3)
+Depends: R (>= 3.5.1)
 SystemRequirements: gnome-screensaver [Linux]
 License: GPL-3
 Encoding: UTF-8
