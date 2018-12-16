@@ -28,8 +28,9 @@ workTimer = function(minutes = 25, lockScreen = TRUE) {
     ## it's over!
     cat("\nIT'S OVER!\n")
     
+    
+    systemOs = Sys.info()["sysname"]
     if (lockScreen) {
-        systemOs = Sys.info()["sysname"]
         switch(
             systemOs,
             Windows = {
@@ -42,6 +43,14 @@ workTimer = function(minutes = 25, lockScreen = TRUE) {
                         wait = FALSE, stdout = FALSE, stderr = FALSE)
             }
         )
+    } else {
+        command = switch(
+            systemOs,
+            Windows = "open",
+            Linux = "eog")
+        system2(command = command,
+                args = system.file("party.jpg", package = "worktimr"),
+                        wait = FALSE, stdout = FALSE, stderr = FALSE)
     }
 }
 
