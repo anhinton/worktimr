@@ -6,7 +6,7 @@
 #' @param lockScreen logical lock the screen when countdown ends
 #'
 #' @export
-workTimer = function(minutes = 25, lockScreen = TRUE) {
+workTimer = function(minutes = 25, lockScreen = FALSE) {
 
     ## wait 25 minutes
     endTime = Sys.time() + (minutes * 60)
@@ -44,13 +44,18 @@ workTimer = function(minutes = 25, lockScreen = TRUE) {
             }
         )
     } else {
-        command = switch(
+        switch(
             systemOs,
-            Windows = "open",
-            Linux = "eog")
-        system2(command = command,
+            Windows = system2(
+                command = "cmd", 
+                args = c("/c", shQuote(paste(
+                    "start", "/HIGH",
+                    system.file("party.jpg", package = "worktimr")))),
+                wait = FALSE, stdout = FALSE, stderr = FALSE),
+            Linux = system2(
+                command = "see",
                 args = system.file("party.jpg", package = "worktimr"),
-                        wait = FALSE, stdout = FALSE, stderr = FALSE)
+                wait = FALSE, stdout = FALSE, stderr = FALSE))
     }
 }
 

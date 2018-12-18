@@ -4,7 +4,7 @@
 \alias{workTimer}
 \title{Countdown until stop work}
 \usage{
-workTimer(minutes = 25, lockScreen = TRUE)
+workTimer(minutes = 25, lockScreen = FALSE)
 }
 \arguments{
 \item{minutes}{numeric}
