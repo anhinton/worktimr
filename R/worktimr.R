@@ -46,12 +46,11 @@ workTimer = function(minutes = 25, lockScreen = FALSE) {
     } else {
         switch(
             systemOs,
-            Windows = system2(
-                command = "cmd", 
-                args = c("/c", shQuote(paste(
-                    "start", "/HIGH",
-                    system.file("party.jpg", package = "worktimr")))),
-                wait = FALSE, stdout = FALSE, stderr = FALSE),
+            Windows = shell(
+                cmd = paste("start", 
+                            system.file("party.jpg", package = "worktimr")),
+                wait = FALSE),
+            
             Linux = system2(
                 command = "see",
                 args = system.file("party.jpg", package = "worktimr"),
