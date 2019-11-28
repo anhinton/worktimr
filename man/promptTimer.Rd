@@ -4,12 +4,19 @@
 \alias{promptTimer}
 \title{Prompt to repeat \code{workTimer}}
 \usage{
-promptTimer(minutes = 25, lockScreen = TRUE)
+promptTimer(minutes = 25, outcome = "lock", con = "",
+  timerMessage = "time until explosion: ", finalMessage = "IT'S OVER!")
 }
 \arguments{
 \item{minutes}{numeric}
 
-\item{lockScreen}{boolean lock the screen when countdown ends}
+\item{outcome}{character naming one of "lock", "alarm", or "nothing"}
+
+\item{con}{character naming output text file}
+
+\item{timerMessage}{character display before countdown timer}
+
+\item{finalMessage}{character display when countdown expired}
 }
 \description{
 Keep prompting to start another batch of work until quit.

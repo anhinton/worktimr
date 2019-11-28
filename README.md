@@ -7,6 +7,12 @@ Install with `devtools::install_github("anhinton/worktimr")`.
 
 Count down 25 minutes lock screen with `worktimr::workTimer(minutes = 25)`
 
+`inst/alarm.mp3`
+"[Alarm Bell](https://freesound.org/people/DDmyzik/sounds/460262/)"
+by [DDmyzik](https://freesound.org/people/DDmyzik/)
+is licensed under
+[CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)
+
 `inst/party.jpg`
 "[Birthday Griff, 10 Aug 14, 4](https://www.flickr.com/photos/castaway_in_wales/14878360206)"
 by [Castaway in Scotland](https://www.flickr.com/photos/castaway_in_wales/)

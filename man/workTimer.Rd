@@ -4,13 +4,38 @@
 \alias{workTimer}
 \title{Countdown until stop work}
 \usage{
-workTimer(minutes = 25, lockScreen = FALSE)
+workTimer(minutes = 25, outcome = "lock", con = "",
+  timerMessage = "time until explosion: ", finalMessage = "IT'S OVER!")
 }
 \arguments{
 \item{minutes}{numeric}
 
-\item{lockScreen}{logical lock the screen when countdown ends}
+\item{outcome}{character naming one of "lock", "alarm", or "nothing"}
+
+\item{con}{character naming output text file}
+
+\item{timerMessage}{character display before countdown timer}
+
+\item{finalMessage}{character display when countdown expired}
 }
 \description{
-Countdown \code{minutes} then lock screen.
+Countdown \code{minutes} then do something.
+}
+\details{
+What happens when to the time expires is specified by the \code{outcome}
+argument.
+\itemize{
+\item \dQuote{lock} locks the screen
+\item \dQuote{alarm} plays an alarm sound
+\item \dQuote{nothing} nothing happens
+}
+
+If \code{con} is set to an empty character string the output is printed
+to the console. If a file is named the output is printing to a file,
+replacing the contents.
+
+The \code{outcome} value \dQuote{alarm} requires that Windows Media
+Player be installed at 
+\code{C:\\Program Files (x86)\\Windows Media Player\\wmplayer.exe} on
+Windows. No other platforms are currently supported.
 }
