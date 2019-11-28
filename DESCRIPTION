@@ -3,9 +3,10 @@ Title: Remind Me To Stand Up From My Desk
 Version: 2019-11-28
 Authors@R: person("Ashley", "Hinton", email = "ashley@canadia.co.nz", role = c("aut", "cre"))
 Description: This package counts down a given number of minutes then
-    displays a full-screen image to remind me to stand up and stretch.
+    locks the screen or plays an alarm.
 Depends: R (>= 3.5)
-SystemRequirements: eog, gnome-screensaver [Linux]
+SystemRequirements: Linux: gnome-screensaver;
+    Windows: Windows Media Player
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
