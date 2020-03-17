@@ -4,8 +4,13 @@
 \alias{workTimer}
 \title{Countdown until stop work}
 \usage{
-workTimer(minutes = 25, outcome = "lock", con = "",
-  timerMessage = "time until explosion: ", finalMessage = "IT'S OVER!")
+workTimer(
+  minutes = 25,
+  outcome = "lock",
+  con = "",
+  timerMessage = "time until explosion: ",
+  finalMessage = "IT'S OVER!"
+)
 }
 \arguments{
 \item{minutes}{numeric}
@@ -37,5 +42,5 @@ replacing the contents.
 The \code{outcome} value \dQuote{alarm} requires that Windows Media
 Player be installed at 
 \code{C:\\Program Files (x86)\\Windows Media Player\\wmplayer.exe} on
-Windows. No other platforms are currently supported.
+Windows. On Linux it requires \code{vlc} to be on the PATH.
 }

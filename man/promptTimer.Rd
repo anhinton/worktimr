@@ -4,8 +4,13 @@
 \alias{promptTimer}
 \title{Prompt to repeat \code{workTimer}}
 \usage{
-promptTimer(minutes = 25, outcome = "lock", con = "",
-  timerMessage = "time until explosion: ", finalMessage = "IT'S OVER!")
+promptTimer(
+  minutes = 25,
+  outcome = "lock",
+  con = "",
+  timerMessage = "time until explosion: ",
+  finalMessage = "IT'S OVER!"
+)
 }
 \arguments{
 \item{minutes}{numeric}

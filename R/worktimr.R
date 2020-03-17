@@ -17,7 +17,7 @@
 #' The \code{outcome} value \dQuote{alarm} requires that Windows Media
 #' Player be installed at 
 #' \code{C:\\Program Files (x86)\\Windows Media Player\\wmplayer.exe} on
-#' Windows. No other platforms are currently supported.
+#' Windows. On Linux it requires \code{vlc} to be on the PATH.
 #'
 #' @param minutes numeric
 #' @param outcome character naming one of "lock", "alarm", or "nothing"
@@ -83,6 +83,12 @@ workTimer = function(minutes = 25, outcome = "lock", con = "",
     } else if (outcome == "alarm") {
         switch(
             systemOs,
+            Linux = {
+                system2(
+                    command = "vlc",
+                    args = system.file("alarm.mp3", package = "worktimr"),
+                    wait = FALSE, stdout = FALSE, stderr = FALSE)
+            },
             Windows = {
                 system2(
                     command = "C:/Program Files (x86)/Windows Media Player/wmplayer.exe",
