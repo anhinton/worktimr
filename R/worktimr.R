@@ -96,9 +96,12 @@ workTimer = function(minutes = 25, outcome = "lock", con = "",
                     command = "C:/Program Files/VideoLAN/VLC/vlc.exe",
                     args = c(
                         "--intf", "dummy",
-                        gsub(pattern = "/", 
-                             replacement = "\\\\", 
-                             system.file("alarm.mp3", package = "worktimr")),
+                        shQuote(
+                            gsub(pattern = "/", 
+                                 replacement = "\\\\", 
+                                 system.file("alarm.mp3", 
+                                             package = "worktimr")),
+                            type = "cmd"),
                         "vlc://quit"),
                     invisible = FALSE,
                     wait = FALSE)
