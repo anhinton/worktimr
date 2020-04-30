@@ -87,7 +87,8 @@ workTimer = function(minutes = 25, outcome = "lock", con = "",
                 system2(
                     command = "vlc",
                     args = c("--intf", "dummy",
-                             system.file("alarm.mp3", package = "worktimr")),
+                             system.file("alarm.mp3", package = "worktimr"),
+                             "vlc://quit"),
                     wait = FALSE, stdout = FALSE, stderr = FALSE)
             },
             Windows = {
