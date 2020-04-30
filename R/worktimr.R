@@ -86,12 +86,13 @@ workTimer = function(minutes = 25, outcome = "lock", con = "",
             Linux = {
                 system2(
                     command = "vlc",
-                    args = system.file("alarm.mp3", package = "worktimr"),
+                    args = c("--intf", "dummy",
+                             system.file("alarm.mp3", package = "worktimr")),
                     wait = FALSE, stdout = FALSE, stderr = FALSE)
             },
             Windows = {
                 system2(
-                    command = "C:/Program Files (x86)/Windows Media Player/wmplayer.exe",
+                    command = "C:/Program Files/VideoLAN/VLC/vlc.exe",
                     args = shQuote(system.file("alarm.mp3", package = "worktimr"),
                                    type = "cmd"),
                     invisible = FALSE,
