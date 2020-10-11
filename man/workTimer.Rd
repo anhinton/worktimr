@@ -39,8 +39,7 @@ If \code{con} is set to an empty character string the output is printed
 to the console. If a file is named the output is printing to a file,
 replacing the contents.
 
-The \code{outcome} value \dQuote{alarm} requires that Windows Media
-Player be installed at 
-\code{C:\\Program Files (x86)\\Windows Media Player\\wmplayer.exe} on
+The \code{outcome} value \dQuote{alarm} requires that VLC be installed at 
+\code{C:\\Program Files\\VideoLAN\\VLC\\vlc.exe} on
 Windows. On Linux it requires \code{vlc} to be on the PATH.
 }
