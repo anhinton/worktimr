@@ -1,12 +1,12 @@
 Package: worktimr
 Title: Remind Me To Stand Up From My Desk
-Version: 2020-07-23
+Version: 2020-10-12
 Authors@R: person("Ashley", "Hinton", email = "ashley@canadia.co.nz", role = c("aut", "cre"))
 Description: This package counts down a given number of minutes then
     locks the screen or plays an alarm.
-Depends: R (>= 3.5)
+Depends: R (>= 4.0)
 SystemRequirements: Linux: gnome-screensaver, vlc;
-    Windows: Windows Media Player
+    Windows: VLC
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
