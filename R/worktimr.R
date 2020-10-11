@@ -14,9 +14,8 @@
 #' to the console. If a file is named the output is printing to a file,
 #' replacing the contents.
 #' 
-#' The \code{outcome} value \dQuote{alarm} requires that Windows Media
-#' Player be installed at 
-#' \code{C:\\Program Files (x86)\\Windows Media Player\\wmplayer.exe} on
+#' The \code{outcome} value \dQuote{alarm} requires that VLC be installed at 
+#' \code{C:\\Program Files\\VideoLAN\\VLC\\vlc.exe} on
 #' Windows. On Linux it requires \code{vlc} to be on the PATH.
 #'
 #' @param minutes numeric
@@ -70,6 +69,11 @@ workTimer = function(minutes = 25, outcome = "lock", con = "",
     if (outcome == "lock") {
         switch(
             systemOs,
+            Darwin = {
+                system2(command = "/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession",
+                        args = "-suspend", wait = FALSE, stdout = FALSE, 
+                        stderr = FALSE)
+            },
             Windows = {
                 system2(command = "rundll32.exe", 
                         args = "user32.dll, LockWorkStation", wait = FALSE,
