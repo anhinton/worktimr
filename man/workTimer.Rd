@@ -41,5 +41,6 @@ replacing the contents.
 
 The \code{outcome} value \dQuote{alarm} requires that VLC be installed at 
 \code{C:\\Program Files\\VideoLAN\\VLC\\vlc.exe} on
-Windows. On Linux it requires \code{vlc} to be on the PATH.
+Windows. On Linux it requires \code{vlc} to be on the PATH. On Macos it
+expects VLC to be installed at \code{/Applications/VLC.app}.
 }

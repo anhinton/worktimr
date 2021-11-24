@@ -16,7 +16,8 @@
 #' 
 #' The \code{outcome} value \dQuote{alarm} requires that VLC be installed at 
 #' \code{C:\\Program Files\\VideoLAN\\VLC\\vlc.exe} on
-#' Windows. On Linux it requires \code{vlc} to be on the PATH.
+#' Windows. On Linux it requires \code{vlc} to be on the PATH. On Macos it
+#' expects VLC to be installed at \code{/Applications/VLC.app}.
 #'
 #' @param minutes numeric
 #' @param outcome character naming one of "lock", "alarm", or "nothing"
@@ -70,8 +71,8 @@ workTimer = function(minutes = 25, outcome = "lock", con = "",
         switch(
             systemOs,
             Darwin = {
-                system2(command = "/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession",
-                        args = "-suspend", wait = FALSE, stdout = FALSE, 
+                system2(command = "pmset",
+                        args = "displaysleepnow", wait = FALSE, stdout = FALSE, 
                         stderr = FALSE)
             },
             Windows = {
@@ -87,6 +88,14 @@ workTimer = function(minutes = 25, outcome = "lock", con = "",
     } else if (outcome == "alarm") {
         switch(
             systemOs,
+            Darwin = {
+                system2(
+                    "/Applications/VLC.app/Contents/MacOS/VLC",
+                    args = c("--intf", "dummy",
+                             system.file("alarm.mp3", package = "worktimr"),
+                             "vlc://quit"),
+                    wait = FALSE, stdout = FALSE, stderr = FALSE)
+            },
             Linux = {
                 system2(
                     command = "vlc",
