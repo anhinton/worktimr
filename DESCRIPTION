@@ -1,6 +1,6 @@
 Package: worktimr
 Title: Remind Me To Stand Up From My Desk
-Version: 2021-11-25
+Version: 2025-02-23
 Authors@R: person("Ashley", "Hinton", email = "ashley@canadia.co.nz", role = c("aut", "cre"))
 Description: This package counts down a given number of minutes then
     locks the screen or plays an alarm.
