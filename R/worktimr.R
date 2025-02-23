@@ -81,7 +81,7 @@ workTimer = function(minutes = 25, outcome = "lock", con = "",
                         stdout = FALSE, stderr = FALSE)
             },
             Linux = {
-                system2(command = "gnome-screensaver-command", args = "-l", 
+                system2(command = "xdg-screensaver", args = "lock", 
                         wait = FALSE, stdout = FALSE, stderr = FALSE)
             }
         )
